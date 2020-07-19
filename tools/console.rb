@@ -1,39 +1,42 @@
 require_relative '../config/environment.rb' 
-
 require 'pry'
-require_relative '../app/models/guests.rb'
-require_relative '../app/models/listings.rb'
-require_relative '../app/models/trips.rb'
+require_relative '../app/crowdfund/pledge.rb'
+require_relative '../app/crowdfund/project.rb'
+require_relative '../app/crowdfund/user.rb'
 
 
 
-greg = Guest.new("greg")
-david = Guest.new ("david")
-paul = Guest.new("paul")
-mike = Guest.new("mike")
+greg = User.new("greg")
+david = User.new ("david")
+paul = User.new("paul")
+mike = User.new("mike")
 
-paris = Listing.new("paris")
-houston = Listing.new("houston")
-nyc = Listing.new("nyc")
-chicago = Listing.new("chicago")
-london = Listing.new("london")
+car = Project.new("car", greg, 1000)
+bike = Project.new("bike", david, 1100)
+book = Project.new("book", greg, 300)
+keyboard = Project.new("keyboard", mike, 1000)
+show = Project.new("show", mike, 15000)
+headphones = Project.new("headphones", greg, 6000)
+shirt = Project.new("shirt", david, 3000)
 
-trip1 = Trip.new(greg, london)
-trip2 = Trip.new(david, paris)
-trip3 = Trip.new(paul, nyc)
-trip4 = Trip.new(mike, chicago)
-trip5 = Trip.new(greg, houston)
-trip6 = Trip.new(greg, nyc)
-trip7 = Trip.new(mike, nyc)
-trip8 = Trip.new(mike, paris)
-trip9 = Trip.new(paul, paris)
-trip10 = Trip.new(greg, paris)
+
+pledge1 = Pledge.new(5, car, greg)
+pledge7 = Pledge.new(5, car, greg)
+pledge8 = Pledge.new(5, car, greg)
+pledge9 = Pledge.new(5, car, greg)
+pledge10 = Pledge.new(5, car, greg)
+pledge11 = Pledge.new(5, car, greg)
+pledge2 = Pledge.new(4, bike, greg)
+pledge3 = Pledge.new(19, book, david)
+pledge4 = Pledge.new(1000, car, paul)
+pledge5 = Pledge.new(5000, show, mike)
+pledge6 = Pledge.new(80, show, david)
 
 binding.pry
 last_line
 
 
 
-# def reload
-#   load 'config/environment.rb'
-# end
+ def reload
+  load 'config/environment.rb'
+end

@@ -16,7 +16,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  pry
   pry-byebug
   require_all
 
