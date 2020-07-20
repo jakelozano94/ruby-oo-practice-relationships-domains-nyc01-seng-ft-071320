@@ -28,7 +28,7 @@ class Listing
 #good
     def self.most_popular
         histo = Trip.all.each_with_object(Hash.new(0)) do |trip, new_hash|
-            new_hash[trip.listing] += 1
+            new_hash[trip.listing.city] += 1
         end
         max = histo.max_by{|k,v| v}
         max[0]

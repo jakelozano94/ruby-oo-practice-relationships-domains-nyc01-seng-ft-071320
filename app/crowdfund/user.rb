@@ -38,17 +38,18 @@ class User
         end
     end
 
-    # def self.multi_pledgers
-    #     uniq_pledger.each_with_object(Hash.new(0)) do |value, new_hash|
-    #         new_hash[value.project] += 1
-    #     end
-    # end
+    def self.multi_pledgers
+        histo = uniq_pledger.each_with_object(Hash.new(0)) do |(key, value), new_hash|
+            new_hash[key] = value.count
+        end
+        histo.select{|k,v| v > 1}.keys
+    end
 
 def my_projects
     Pledge.all.map {|pledge| pledge.project if pledge.user == self}.compact.uniq
 end
 
-def self.multi_pledger
+def self.multi_pledger_v2
     self.all.select {|user| user if user.my_projects.length > 1}
 end
 end
